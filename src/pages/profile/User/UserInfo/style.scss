@@ -1,0 +1,16 @@
+.user-info {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .user-info-item {
+    width: calc(33.33% - 10px); 
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .user-info-item {
+      width: calc(50% - 10px);
+    }
+  }

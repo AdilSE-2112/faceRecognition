@@ -1,0 +1,353 @@
+@import './../../globals/mixins.scss';
+
+.home-page {
+    height: 100%;
+    width: 100%;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .container {
+        max-width: 1000px;
+        width: 100%;
+
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        @media (max-width: 750px) {
+            flex-direction: column-reverse;
+            gap: 20px;
+            height: max-content;
+        }
+
+        @include mPadding;
+
+        // border: 1px solid red;
+        box-sizing: border-box;
+    }
+
+    .recent-search {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        margin-top: 10px;
+
+        @media (max-width: 600px) {
+            display: none;
+        }
+
+        .title {
+            font-size: 1.4rem;
+            font-family: Montserrat, Inter, sans-serif;
+            font-weight: 300;
+        }
+
+        .cards {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+
+            @media (max-width: 900px) {
+                flex-wrap: wrap;
+            }
+
+            @media (max-width: 700px) {
+                justify-content: center;
+            }
+
+            border: 2px dashed rgba($color: #000000, $alpha: .2);
+            padding: 20px;
+            border-radius: 8px;
+
+            @keyframes gradientMove {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+
+            > div:not(.card) {
+                -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.32);
+                -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.32);
+                box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.32);
+                border-radius: 8px;
+                width: 100%;
+                height: 200px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+
+                /* Animated gradient background */
+                background: linear-gradient(270deg, #e0e0e0, #ffffff, #e0e0e0);
+                background-size: 600% 600%;
+                animation: gradientMove 5s ease infinite;
+            }
+
+            .card {
+                display: flex;
+                flex-direction: column;
+
+                -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.32);
+                -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.32);
+                box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.32);
+                
+                border-radius: 8px;
+                overflow: hidden;
+                
+                transition: transform 0.2s ease-in-out;
+                
+                position: relative;
+                min-width: 33%;
+                width: max-content;
+                max-width: 400px;
+                height: 100%;
+                max-height: 300px;
+
+                .info-block {
+                    position: absolute;
+                    top: 0px;
+                    right: 0px;
+
+                    padding: 10px;
+
+                    display: flex;
+                    flex-direction: row-reverse;
+                    justify-content: flex-end;
+                    align-items: flex-start;
+
+                    .icon {
+                        font-size: 20px;
+                        color: #474747c5;
+                        cursor: pointer;
+                    }
+
+                    .info {
+                        background-color: rgba($color: #d9d9d9, $alpha: .9);
+                        border-radius: 8px 4px 8px 8px;
+
+                        padding: 10px;
+                    }
+                }
+
+                &:hover {
+                    transform: scale(101%);
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+
+                    object-position: center center;
+                }
+
+                > div {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    padding: 0px 15px;
+
+                }
+            }
+        }
+    }
+
+    .search-input {
+        flex: 1;
+        padding-top: 78px;
+        padding-left: 28px;
+        box-sizing: border-box;
+
+        display: flex;
+        flex-direction: row;
+        gap: 100px;
+        
+        @media (max-width: 750px) and ( min-width: 600px) {
+            padding-top: 30px;
+            gap: 50px;
+        }
+
+        @media (max-width: 700px) {
+            gap: 30px;
+        }
+
+        @media (max-width: 700px) {
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+
+        }
+
+        .file-input {
+            position: relative;
+
+            width: 400px;
+            height: 256px;
+
+            display: flex;
+            flex-direction: column;
+
+            input {
+                height: 100%;
+                width: 100%;
+
+                opacity: 0;
+                z-index: 10;
+
+                cursor: pointer;
+            }
+
+            img {
+                z-index: -10;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                opacity: 0.3;
+                user-select: none;
+            }
+
+            > div {
+                z-index: 1;
+                position: absolute;
+
+                height: 100%;
+                width: 100%;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-end;
+                border: 2px dashed rgba(0, 0, 0, 0.5);
+                border-radius: 10px;
+                box-sizing: border-box;
+
+                &:-moz-drag-over {
+                    border: 2px dashed rgb(0, 0, 0, 1);
+                }
+
+                p {
+                    font-size: 13px;
+                    text-align: center;
+                }
+
+                .icon {
+                    position: absolute;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    left: 50%;
+
+                    color: rgba($color: #7a7a7a, $alpha: 1);
+                    font-size: 70px;
+                }
+                .check-icon {
+                    color: green;
+                  }
+            }
+        }
+
+        .iin-input {
+            flex: 1;
+            max-width: 400px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            @media (max-width: 700px) {
+                align-items: flex-start;
+                width: 100%;
+                // max-width: 100%;
+            }
+
+            > div:nth-child(1) {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+
+                @media (max-width: 600px) {
+                    width: 100%;
+                }
+
+                input {
+                    flex: 1;
+
+                    color: #929191;
+                    font-size: 16px;
+
+                    border: none;
+                    border-bottom: rgba($color: #C1C1C1, $alpha: 0.8) solid 1px;
+
+                    padding: 6px 1px;
+
+                    outline: none;
+
+                    &:focus {
+                        border-bottom: rgba($color: #000000, $alpha: 1) solid 1px;
+                    }
+                }
+
+                button {
+                    background-color: #A5A5A5;
+                    color: #FFFFFF;
+                    border-radius: 4px;
+                    border: none;
+
+                    padding: 4px 20px;
+
+                    font-size: 15px;
+
+                    cursor: pointer;
+
+                    transition: background-color 0.1s ease-in-out;
+
+                    &:active {
+                        background-color: #727272;
+                    }
+                }
+            }
+
+            > div:nth-child(2) {
+                display: flex;
+                flex-direction: column;
+                gap: 13px;
+
+                > div {
+                    display: flex;
+                    flex-direction: column;
+
+                    p {
+                        margin: 0;
+                        padding: 0;
+
+                        &:nth-child(1) {
+                            color: black;
+                            font-size: 16px;
+                            font-weight: 600;
+                        }
+
+                        &:nth-child(2) {
+                            color: #595959;
+                            font-size: 16px;
+                            font-weight: 300;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,161 @@
+@import './../../globals/mixins.scss';
+
+.result-page {
+    height: 100%;
+    width: 100%;
+
+    overflow-x: hidden;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .container {
+        max-width: 1000px;
+        width: 100%;
+
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        @include mPadding;
+
+        // border: 1px solid red;
+        box-sizing: border-box;
+    }
+
+    .main-result-block {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        .canvas {
+            overflow: hidden;
+            border-radius: 4px;
+            border: 1px dashed black;
+            height: 400px;
+
+            > canvas {
+                // width: 100%;
+                height: 100%;
+            }
+        }
+
+        .info {
+            flex: 1;
+            min-width: 400px; 
+            width: max-content;
+            background-color: rgba(212, 212, 212, 0.5);
+
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            align-items: center;
+
+            padding: 25px 25px;
+
+            .photo {
+                width: 200px;
+                border: 1px solid rgb(92, 92, 92);
+
+                > img {
+                    width: 100%;
+                }
+            }
+
+            > div:nth-child(2) {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 16px;
+
+                div {
+                    font-weight: bold;
+                    font-size: 18px;
+
+                    span {
+                        font-weight: normal;
+                    }
+                }
+            }
+        }
+    }
+
+    .additional-result-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        width: 100%;
+        box-sizing: border-box;
+
+        margin-top: 50px;
+        padding-bottom: 50px;
+
+        .title {
+            
+        }
+
+        .cards {
+            width: 100%;
+
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            box-sizing: border-box;
+
+            row-gap: 45px;
+            column-gap: 100px;
+
+            .card {
+                display: flex;
+                flex-direction: row;
+                gap: 36px;
+
+                border: 1px solid black;
+                border-radius: 4px;
+
+                padding: 65px 35px;
+                box-sizing: border-box;
+                width: 447px;
+
+                .photo {
+                    width: 200px;
+
+                    > img {
+                        width: 100%;
+                    }
+                }
+
+                .info-block {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    .info {
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                    }
+
+                    .actions {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-end;
+                        gap: 10px;
+
+                        > * {
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

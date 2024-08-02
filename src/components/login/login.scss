@@ -1,0 +1,192 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../../font/Montserrat/static/Montserrat-Regular.ttf') format('truetype');
+}
+.login-page {
+    margin-top: 0;
+    background-image: url('../../assets/img/backgroundLogin.png');
+    background-size: cover; // Cover the entire page
+    background-position: center; // Center the background image
+    height: 100vh; // Make sure the div takes up the full viewport height
+    width: 100vw; // 
+    * {
+        font-family: 'Montserrat';
+    }
+    
+    .warning-block {
+        position: absolute;
+        top: 10px;
+        // left: 10px;
+        left: -200px;
+        background-color: rgba(211, 55, 55, 0.603);
+        transition: all 0.5s ease;
+        padding: 20px;
+        padding-right: 4 0px;
+        border-radius: 7px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        svg {
+            width: 30px;
+        }
+        a {
+            color: white;
+            font-size: 16px;
+            font-weight: 400;
+        }
+    }
+
+    .login-form-block {
+        padding: 15px 40px 15px 40px;
+        background-color: white;
+        border-right: 1px solid #BEBEBE;
+        border-radius: 9px;
+        height: 400px;
+        width: 400px;
+        position: absolute;
+        top: 50%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .header {
+            h1 {
+                color: #636363;
+            }
+        }
+
+
+        .body {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            .input-line {
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+
+
+                .login-container {
+                    position: relative;
+                    .icon {
+                        position: absolute;
+                        bottom: 2px;
+                        svg {
+                            opacity: 0.7;
+                            width: 20px;
+                        }
+                    }
+
+                    input {
+                        padding-left: 25px;
+
+                    }
+                }
+
+                label {
+                    font-size: 18px;
+                    font-weight: 400;
+                    
+                }
+                
+                input {
+                    width: 93%;
+                    font-size: 16px;
+                    font-weight: 400;
+                    padding: 4px;
+                    border: none;
+                    border-bottom: 1px solid #BEBEBE;
+                    
+                    &:hover {
+                        border-bottom: 1px solid #636363;
+                    }
+                    &:focus {
+                        outline: none;
+                        border-bottom: 1px solid #636363;
+                    }
+                }
+                .password-container {
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                    .icon {
+                        position: absolute;
+                        bottom: 2px;
+                        svg {
+                            opacity: 0.7;
+                            width: 20px;
+                        }
+                    }
+                    > input {
+                        padding-left: 25px;
+
+                        padding-right: 40px;
+                    }
+
+
+                    .password-input {
+                        width: 100%;
+                    }
+                    .toggle-password {
+                        position: absolute;
+                        right: 0px; /* Adjust as necessary */
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background: none;
+                        border: none;
+                        cursor: pointer;
+                        svg {
+                            width: 24px;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        .footer {
+            padding-bottom: 25px;
+            padding-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            justify-content: right;
+
+            button {
+                padding: 10px 30px 10px 30px;
+                background: none;
+                font-size: 16px;
+                font-weight: 500;
+                border-radius: 5px;
+                cursor: pointer;
+
+
+                transition: all 0.2s ease;
+                &:hover {
+                    transition: all 0.2s ease;
+                }
+            }
+
+            .submit {
+                border: 1px solid #1b376f;
+                color: #1b376f;
+                &:hover {
+                    background-color: #1b376f2c;
+                }
+            }
+            .clear {
+                border: 1px solid #636363;
+                color: #636363;
+                &:hover {
+                    background-color: #6363632c;
+                }
+            }
+        }
+    }
+}
