@@ -150,7 +150,7 @@ const SearchCard = ({ history, onRepeatSearch }) => {
 
   const { devMode } = useAuth();
 
-  const PHOTO_URL = 'http://192.168.122.110:25000/history/';
+  const PHOTO_URL = 'http://192.168.122.110:9000/history/';
 
   useEffect(() => {
     setPhoto(`${PHOTO_URL}${history.searchedPhoto}`);
