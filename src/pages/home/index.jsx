@@ -185,7 +185,7 @@ const Search_Card = ({ history }) => {
   const { devMode } = useAuth();
   const mockImages = [history_mock_1, history_mock_2, history_mock_3, history_mock_4];
 
-  const PHOTO_URL = 'http://192.168.122.101:9000/history/';
+  const PHOTO_URL = 'http://192.168.122.110:25000/history/';
 
 
   useEffect(() => {
