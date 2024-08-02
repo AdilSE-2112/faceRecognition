@@ -43,7 +43,7 @@ function Home() {
       data.append('reload', 0);
 
       await axios.post(
-        'http://192.168.122.101:8000/api/v1/search/',
+        'http://192.168.122.110:25000/api/v1/search/',
         data,
         {
           headers: { 'Authorization': 'Bearer ' + token },
@@ -76,7 +76,7 @@ function Home() {
     if (authUserId) {
       if (!devMode) {
         axios.post(
-          'http://192.168.122.101:8000/api/v1/getUserInfo/',
+          'http://192.168.122.110:25000/api/v1/getUserInfo/',
           { 'auth_user_id': authUserId },
           { headers: { 'Authorization': 'Bearer ' + token } }
         ).then(res => {

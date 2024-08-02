@@ -33,7 +33,7 @@ const HistoryPage = () => {
     const _auth_user_id = auth_user_id || localStorage.getItem('auth_user_id') || 2
     
     axios.get(
-      `http://192.168.122.101:8000/api/v1/account/history/${_auth_user_id}/`,
+      `http://192.168.122.110:25000/api/v1/account/history/${_auth_user_id}/`,
       {
         headers: { 'Authorization': 'Bearer ' + token },
       }
@@ -53,7 +53,7 @@ const HistoryPage = () => {
     const _auth_user_id = auth_user_id || localStorage.getItem('auth_user_id') || 2
     
     axios.get(
-      `http://192.168.122.101:8000/api/v1/account/history/${_auth_user_id}/`,
+      `http://192.168.122.110:25000/api/v1/account/history/${_auth_user_id}/`,
       {
         params: {
           'page': page
@@ -183,7 +183,7 @@ const SearchCard = ({ history, onRepeatSearch }) => {
     console.log(token, auth_user_id, history.searchedPhoto)
 
     await axios.post(
-      'http://192.168.122.101:8000/api/v1/search/',
+      'http://192.168.122.110:25000/api/v1/search/',
       data,
       {
         headers: { 'Authorization': 'Bearer ' + token },

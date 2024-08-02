@@ -37,7 +37,7 @@ function Login() {
     console.log("first")
     try {
         const response = await axios.post(
-          'http://192.168.122.101:8000/api/v1/login/',
+          'http://192.168.122.110:25000/api/v1/login/',
           {
             username: login,
             password: password
